@@ -14,9 +14,9 @@ public abstract class Entidade : IValidate
         _notifications = [];
     }
 
-    public Guid Id { get; private set; }
+    public Guid Id { get; }
 
-    public DateTime CriadoEmUtc { get; private set; }
+    public DateTime CriadoEmUtc { get; }
 
     public IReadOnlyCollection<Notification> Notifications => _notifications.AsReadOnly();
 

@@ -16,9 +16,9 @@ public sealed class Domicilio : Entidade, IContract
         Tipo = tipo;
     }
 
-    public Endereco Endereco { get; private set; }
+    public Endereco Endereco { get; }
 
-    public EDomicilioTipo Tipo { get; private set; }
+    public EDomicilioTipo Tipo { get; }
 
     public static Domicilio Criar(Endereco endereco, EDomicilioTipo tipo) =>
     new(endereco, tipo);

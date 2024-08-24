@@ -36,29 +36,29 @@ public sealed class Cadastro : Entidade, IContract
     }
 
 
-    public Email Email { get; private set; }
+    public Email Email { get; }
 
-    public Nome Nome { get; private set; }
+    public Nome Nome { get; }
 
-    public bool Empresa { get; private set; }
+    public bool Empresa { get; }
 
-    public Telefone Telefone { get; private set; }
+    public Telefone Telefone { get; }
 
-    public Inscrito Inscrito { get; private set; }
+    public Inscrito Inscrito { get; }
 
-    public Credencial Credencial { get; private set; }
+    public Credencial Credencial { get; }
 
-    public Parceiro Parceiro { get; private set; }
+    public Parceiro Parceiro { get; }
 
-    public Documentacao Documentacao { get; private set; }
+    public Documentacao Documentacao { get; }
 
-    public Identificacao Identificacao { get; private set; }
+    public Identificacao Identificacao { get; }
 
-    public Endereco Endereco { get; private set; }
+    public Endereco Endereco { get; }
 
-    public Pessoa Pessoa { get; private set; }
+    public Pessoa Pessoa { get; }
 
-    public static Cadastro Criar(
+    private static Cadastro Criar(
         Email email,
         Nome nome,
         bool empresa,
@@ -71,6 +71,54 @@ public sealed class Cadastro : Entidade, IContract
         Endereco endereco,
         Pessoa pessoa) =>
         new(
+        email,
+        nome,
+        empresa,
+        telefone,
+        inscrito,
+        credencial,
+        parceiro,
+        documentacao,
+        identificacao,
+        endereco,
+        pessoa);
+
+        public static Cadastro CriarCadastroPessoaFisica(
+        Email email,
+        Nome nome,
+        bool empresa,
+        Telefone telefone,
+        Inscrito inscrito,
+        Credencial credencial,
+        Parceiro parceiro,
+        Documentacao documentacao,
+        Identificacao identificacao,
+        Endereco endereco,
+        PessoaFisica pessoa) => Criar(
+        email,
+        nome,
+        empresa,
+        telefone,
+        inscrito,
+        credencial,
+        parceiro,
+        documentacao,
+        identificacao,
+        endereco,
+        pessoa);
+
+        public static Cadastro CriarCadastroPessoaJuridica(
+        Email email,
+        Nome nome,
+        bool empresa,
+        Telefone telefone,
+        Inscrito inscrito,
+        Credencial credencial,
+        Parceiro parceiro,
+        Documentacao documentacao,
+        Identificacao identificacao,
+        Endereco endereco,
+        PessoaJuridica pessoa) => Criar(
         email,
         nome,
         empresa,

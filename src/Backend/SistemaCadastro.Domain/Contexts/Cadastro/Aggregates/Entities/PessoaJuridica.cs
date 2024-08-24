@@ -20,9 +20,9 @@ public sealed class PessoaJuridica : Pessoa, IContract
         RazaoSocial = razaoSocial;
     }
 
-    public Cnpj Cnpj { get; private set; }
+    public Cnpj Cnpj { get; }
 
-    public string RazaoSocial { get; private set; }
+    public string RazaoSocial { get; }
 
     public static PessoaJuridica Criar(
         Nome nome,

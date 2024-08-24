@@ -16,13 +16,13 @@ public abstract class Pessoa : Entidade
 
     private readonly List<Domicilio> _domicilios;
 
-    public Nome Nome { get; private set; }
+    public Nome Nome { get; }
 
-    public Email Email { get; private set; }
+    public Email Email { get; }
 
-    public Telefone Telefone { get; private set; }
+    public Telefone Telefone { get; }
 
-    public Guid Token { get; private set; }
+    public Guid Token { get; }
 
     public IReadOnlyCollection<Domicilio> Domicilios => _domicilios.AsReadOnly();
 }

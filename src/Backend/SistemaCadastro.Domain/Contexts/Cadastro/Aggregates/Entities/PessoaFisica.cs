@@ -20,9 +20,9 @@ public sealed class PessoaFisica : Pessoa, IContract
         Nascimento = nascimento;
     }
 
-    public Cpf Cpf { get; private set; }
+    public Cpf Cpf { get; }
 
-    public DateTime Nascimento { get; private set; }
+    public DateTime Nascimento { get; }
 
     public static PessoaFisica Criar(
         Nome nome,
