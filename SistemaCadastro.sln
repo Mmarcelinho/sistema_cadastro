@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{EC4C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaCadastro.Domain", "src\Backend\SistemaCadastro.Domain\SistemaCadastro.Domain.csproj", "{064EA64F-7DEE-45C0-AA6B-22AAAE915E5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaCadastro.Application", "src\Backend\SistemaCadastro.Application\SistemaCadastro.Application.csproj", "{AD399251-41FE-4F00-B7B4-CE5EC305523B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,9 +24,14 @@ Global
 		{064EA64F-7DEE-45C0-AA6B-22AAAE915E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{064EA64F-7DEE-45C0-AA6B-22AAAE915E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{064EA64F-7DEE-45C0-AA6B-22AAAE915E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD399251-41FE-4F00-B7B4-CE5EC305523B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD399251-41FE-4F00-B7B4-CE5EC305523B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD399251-41FE-4F00-B7B4-CE5EC305523B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD399251-41FE-4F00-B7B4-CE5EC305523B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EC4C3D72-E14D-4A0E-B54D-63219B20BB02} = {4EC42CDB-BF89-4382-AE76-B6AF6E22054F}
 		{064EA64F-7DEE-45C0-AA6B-22AAAE915E5A} = {EC4C3D72-E14D-4A0E-B54D-63219B20BB02}
+		{AD399251-41FE-4F00-B7B4-CE5EC305523B} = {EC4C3D72-E14D-4A0E-B54D-63219B20BB02}
 	EndGlobalSection
 EndGlobal
