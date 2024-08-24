@@ -86,7 +86,6 @@ public sealed class Cadastro : Entidade, IContract
         public static Cadastro CriarCadastroPessoaFisica(
         Email email,
         Nome nome,
-        bool empresa,
         Telefone telefone,
         Inscrito inscrito,
         Credencial credencial,
@@ -97,7 +96,7 @@ public sealed class Cadastro : Entidade, IContract
         PessoaFisica pessoa) => Criar(
         email,
         nome,
-        empresa,
+        false,
         telefone,
         inscrito,
         credencial,
@@ -110,7 +109,6 @@ public sealed class Cadastro : Entidade, IContract
         public static Cadastro CriarCadastroPessoaJuridica(
         Email email,
         Nome nome,
-        bool empresa,
         Telefone telefone,
         Inscrito inscrito,
         Credencial credencial,
@@ -121,7 +119,7 @@ public sealed class Cadastro : Entidade, IContract
         PessoaJuridica pessoa) => Criar(
         email,
         nome,
-        empresa,
+        true,
         telefone,
         inscrito,
         credencial,
@@ -134,14 +132,15 @@ public sealed class Cadastro : Entidade, IContract
     public override bool Validate()
     {
         var contracts = new ContractValidations<Cadastro>()
-        .NomeFantasiaIsOk(Nome, 3, 15, DomainErrors.NOME_INVALIDO, nameof(Nome.NomeFantasia))
-        .SobrenomeSocialIsOk(Nome, 3, 15, DomainErrors.NOME_INVALIDO, nameof(Nome.SobrenomeSocial))
+        .NomeFantasiaIsOk(Nome, 3, 30, DomainErrors.NOME_INVALIDO, nameof(Nome.NomeFantasia))
+        .SobrenomeSocialIsOk(Nome, 3, 30, DomainErrors.NOME_INVALIDO, nameof(Nome.SobrenomeSocial))
         .EmailIsValid(Email, DomainErrors.EMAIL_INVALIDO, nameof(Email.Valor))
         .TelefoneIsValid(Telefone, 12, 13, DomainErrors.TELEFONE_INVALIDO, nameof(Telefone.Numero))
         .DocumentoIsValid(Documentacao, DomainErrors.DOCUMENTO_INVALIDO, nameof(Documentacao))
         .EnderecoIsValid(Endereco, 3, 20, DomainErrors.ENDERECO_INVALIDO, nameof(Endereco));
 
         SetNotificationList(contracts.Notifications as List<Notification>);
+        
         return contracts.IsValid();
     }
 }
