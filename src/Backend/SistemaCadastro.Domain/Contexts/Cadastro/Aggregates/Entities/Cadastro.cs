@@ -1,7 +1,6 @@
 using SistemaCadastro.Domain.Contexts.Cadastro.Abstractions;
 using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
 using SistemaCadastro.Domain.Contexts.Cadastro.Errors;
-using SistemaCadastro.Domain.Notifications;
 using SistemaCadastro.Domain.Validations;
 using SistemaCadastro.Domain.Validations.Interfaces;
 
@@ -9,6 +8,8 @@ namespace SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Entities;
 
 public sealed class Cadastro : Entidade, IContract
 {
+    private Cadastro() { }
+
     private Cadastro(
         Email email,
         Nome nome,
@@ -139,7 +140,7 @@ public sealed class Cadastro : Entidade, IContract
         .DocumentoIsValid(Documentacao, DomainErrors.DOCUMENTO_INVALIDO, nameof(Documentacao))
         .EnderecoIsValid(Endereco, 3, 20, DomainErrors.ENDERECO_INVALIDO, nameof(Endereco));
 
-        SetNotificationList(contracts.Notifications as List<Notification>);
+        SetNotificationList([.. contracts.Notifications]);
         
         return contracts.IsValid();
     }
