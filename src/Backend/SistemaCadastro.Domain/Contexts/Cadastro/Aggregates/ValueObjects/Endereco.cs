@@ -1,6 +1,6 @@
 namespace SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
 
-public record Endereco
+public sealed record Endereco
 {
     private Endereco(
         string cep,
@@ -24,23 +24,23 @@ public record Endereco
         Ibge = ibge;
     }
 
-    public string Cep { get; init; }
+    public string Cep { get; }
 
-    public string Logradouro { get; init; }
+    public string Logradouro { get; }
 
-    public string Numero { get; init; }
+    public string Numero { get; }
 
-    public string Bairro { get; init; }
+    public string Bairro { get; }
 
-    public string Complemento { get; init; }
+    public string Complemento { get; }
 
-    public string PontoReferencia { get; init; }
+    public string PontoReferencia { get; }
 
-    public string Uf { get; init; }
+    public string Uf { get; }
 
-    public string Cidade { get; init; }
+    public string Cidade { get; }
 
-    public int Ibge { get; init; }
+    public int Ibge { get; }
 
     public static Endereco Criar(
         string cep,
