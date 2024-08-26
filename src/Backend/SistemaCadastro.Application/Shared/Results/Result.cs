@@ -3,23 +3,15 @@ using SistemaCadastro.Domain.Notifications;
 
 namespace SistemaCadastro.Application.Shared.Results;
 
-public class Result : IResult
+public class Result(int resultCode, string message, bool isOk) : IResult
 {
-    private List<Notification> _notifications;
+    private List<Notification> _notifications = [];
 
-    public Result(int resultCode, string message, bool isOk)
-    {
-        ResultCode = resultCode;
-        Message = message;
-        IsOk = isOk;
-        _notifications = [];
-    }
-
-    public int ResultCode { get; private set; }
-    public string Message { get; private set; }
-    public bool IsOk { get; private set; }
-    public object Data { get; private set; }
-    public IReadOnlyCollection<Notification> Notifications => _notifications;
+    public int ResultCode { get; private set; } = resultCode;
+    public string Message { get; private set; } = message;
+    public bool IsOk { get; private set; } = isOk;
+    public object? Data { get; private set; }
+    public IReadOnlyCollection<Notification> Notifications => _notifications.AsReadOnly();
 
     public void SetNotifications(List<Notification> notifications)
     => _notifications = notifications;
