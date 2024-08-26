@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SistemaCadastro.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Version000001 : Migration
+    public partial class Versio000001 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -53,7 +53,6 @@ namespace SistemaCadastro.Infrastructure.Migrations
                     PrimeiroNome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Sobrenome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NomeFantasia = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SobrenomeSocial = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TelefoneNumero = table.Column<long>(type: "bigint", nullable: false),
                     TelefoneCelular = table.Column<bool>(type: "bit", nullable: false),
