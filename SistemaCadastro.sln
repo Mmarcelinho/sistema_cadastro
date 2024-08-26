@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaCadastro.Application
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaCadastro.API", "src\Backend\SistemaCadastro.API\SistemaCadastro.API.csproj", "{0CE6AC37-1CC2-499F-9EAC-F76573E681E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaCadastro.Infrastructure", "src\Backend\SistemaCadastro.Infrastructure\SistemaCadastro.Infrastructure.csproj", "{83A59402-1D0D-440C-9C32-FB91FAF13E46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,11 +36,16 @@ Global
 		{0CE6AC37-1CC2-499F-9EAC-F76573E681E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CE6AC37-1CC2-499F-9EAC-F76573E681E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CE6AC37-1CC2-499F-9EAC-F76573E681E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83A59402-1D0D-440C-9C32-FB91FAF13E46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83A59402-1D0D-440C-9C32-FB91FAF13E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83A59402-1D0D-440C-9C32-FB91FAF13E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83A59402-1D0D-440C-9C32-FB91FAF13E46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EC4C3D72-E14D-4A0E-B54D-63219B20BB02} = {4EC42CDB-BF89-4382-AE76-B6AF6E22054F}
 		{064EA64F-7DEE-45C0-AA6B-22AAAE915E5A} = {EC4C3D72-E14D-4A0E-B54D-63219B20BB02}
 		{AD399251-41FE-4F00-B7B4-CE5EC305523B} = {EC4C3D72-E14D-4A0E-B54D-63219B20BB02}
 		{0CE6AC37-1CC2-499F-9EAC-F76573E681E6} = {EC4C3D72-E14D-4A0E-B54D-63219B20BB02}
+		{83A59402-1D0D-440C-9C32-FB91FAF13E46} = {EC4C3D72-E14D-4A0E-B54D-63219B20BB02}
 	EndGlobalSection
 EndGlobal
