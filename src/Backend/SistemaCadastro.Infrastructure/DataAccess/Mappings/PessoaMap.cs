@@ -24,9 +24,6 @@ public class PessoaMap : IEntityTypeConfiguration<Pessoa>
             n.Property(n => n.NomeFantasia)
             .HasColumnName("NomeFantasia")
             .IsRequired();
-
-            n.Property(n => n.SobrenomeSocial)
-            .HasColumnName("SobrenomeSocial");
         });
 
         builder.OwnsOne(p => p.Email, e =>
