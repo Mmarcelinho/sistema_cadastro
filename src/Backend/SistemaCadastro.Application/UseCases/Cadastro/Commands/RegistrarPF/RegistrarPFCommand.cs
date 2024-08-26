@@ -1,19 +1,20 @@
 using MediatR;
+using SistemaCadastro.Application.DTOs.Request;
 using SistemaCadastro.Application.Shared.Results.Interfaces;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
 
 namespace SistemaCadastro.Application.UseCases.Cadastro.Commands.RegistrarPF;
 
     public sealed record RegistrarPFCommand(
-    Email Email,
-    Nome Nome,
-    Telefone Telefone,
-    Inscrito Inscrito,
-    Credencial Credencial,
-    Parceiro Parceiro,
-    Documentacao Documentacao,
-    Identificacao Identificacao,
-    Endereco Endereco,
-    Cpf Cpf,
+    EmailRequest Email,
+    NomeRequest Nome,
+    TelefoneRequest Telefone,
+    InscritoRequest Inscrito,
+    CredencialRequest Credencial,
+    ParceiroRequest Parceiro,
+    DocumentacaoRequest Documentacao,
+    IdentificacaoRequest Identificacao,
+    EnderecoRequest Endereco,
+    List<DomicilioRequest> Domicilio,
+    CpfRequest Cpf,
     DateTime Nascimento
 ) : IRequest<IResult>;
