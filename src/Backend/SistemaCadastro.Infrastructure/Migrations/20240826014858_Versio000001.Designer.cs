@@ -12,8 +12,8 @@ using SistemaCadastro.Infrastructure.DataAccess;
 namespace SistemaCadastro.Infrastructure.Migrations
 {
     [DbContext(typeof(SistemaCadastroContext))]
-    [Migration("20240825072931_Version000001")]
-    partial class Version000001
+    [Migration("20240826014858_Versio000001")]
+    partial class Versio000001
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -131,11 +131,6 @@ namespace SistemaCadastro.Infrastructure.Migrations
                                 .IsRequired()
                                 .HasColumnType("nvarchar(max)")
                                 .HasColumnName("Sobrenome");
-
-                            b1.Property<string>("SobrenomeSocial")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("SobrenomeSocial");
 
                             b1.HasKey("PessoaId");
 

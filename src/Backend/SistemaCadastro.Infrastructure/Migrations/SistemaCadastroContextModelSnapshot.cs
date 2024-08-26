@@ -129,11 +129,6 @@ namespace SistemaCadastro.Infrastructure.Migrations
                                 .HasColumnType("nvarchar(max)")
                                 .HasColumnName("Sobrenome");
 
-                            b1.Property<string>("SobrenomeSocial")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("SobrenomeSocial");
-
                             b1.HasKey("PessoaId");
 
                             b1.ToTable("Pessoas");
