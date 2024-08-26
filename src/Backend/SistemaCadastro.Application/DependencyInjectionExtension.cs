@@ -1,4 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
+using SistemaCadastro.Application.Shared.Results;
+using SistemaCadastro.Application.Shared.Results.Interfaces;
 
 namespace SistemaCadastro.Application;
 
