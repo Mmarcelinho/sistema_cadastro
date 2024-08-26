@@ -5,13 +5,15 @@ namespace SistemaCadastro.Domain.Contexts.Cadastro.Abstractions;
 
 public abstract class Pessoa : Entidade
 {
-    protected Pessoa(Nome nome, Email email, Telefone telefone)
+    protected Pessoa() { }
+    
+    protected Pessoa(Nome nome, Email email, Telefone telefone, List<Domicilio> domicilios)
     {
         Nome = nome;
         Email = email;
         Telefone = telefone;
         Token = Guid.NewGuid();
-        _domicilios = [];
+        _domicilios = domicilios;
     }
 
     private readonly List<Domicilio> _domicilios;

@@ -1,6 +1,6 @@
 namespace SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
 
-public record Credencial
+public sealed record Credencial
 {
     private Credencial(bool bloqueada)
     {
@@ -16,11 +16,11 @@ public record Credencial
         Senha = senha;
     }
 
-    public bool Bloqueada { get; init; }
+    public bool Bloqueada { get; }
 
-    public string Expirada { get; init; }
+    public string Expirada { get; }
 
-    public string Senha { get; init; }
+    public string Senha { get; }
 
     public static Credencial Criar(bool bloqueada) => new(bloqueada);
 

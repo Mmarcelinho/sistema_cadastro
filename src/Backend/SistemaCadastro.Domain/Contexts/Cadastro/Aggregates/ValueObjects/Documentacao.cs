@@ -1,6 +1,6 @@
 namespace SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
 
-public record Documentacao
+public sealed record Documentacao
 {
     private Documentacao(string numero, string orgaoEmissor, string estadoEmissor, DateTime validade)
     {
@@ -10,13 +10,13 @@ public record Documentacao
         Validade = validade;
     }
 
-    public string Numero { get; init; }
+    public string Numero { get; }
 
-    public string OrgaoEmissor { get; init; }
+    public string OrgaoEmissor { get; }
 
-    public string EstadoEmissor { get; init; }
+    public string EstadoEmissor { get; }
 
-    public DateTime Validade { get; init; }
+    public DateTime Validade { get; }
 
     public static Documentacao Criar(
         string numero,

@@ -1,6 +1,6 @@
 namespace SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
 
-public record Inscrito
+public sealed record Inscrito
 {
     public Inscrito(bool assinante, bool associado, bool afiliado)
     {
@@ -9,11 +9,11 @@ public record Inscrito
         Afiliado = afiliado;
     }
 
-    public bool Assinante { get; init; }
+    public bool Assinante { get; }
 
-    public bool Associado { get; init; }
+    public bool Associado { get; }
 
-    public bool Afiliado { get; init; }
+    public bool Afiliado { get; }
 
     public static Inscrito Criar(bool assinante, bool associado, bool afiliado) => new(assinante, associado, afiliado);
 }

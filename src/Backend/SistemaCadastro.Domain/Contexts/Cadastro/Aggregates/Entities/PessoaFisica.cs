@@ -1,7 +1,6 @@
 using SistemaCadastro.Domain.Contexts.Cadastro.Abstractions;
 using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
 using SistemaCadastro.Domain.Contexts.Cadastro.Errors;
-using SistemaCadastro.Domain.Notifications;
 using SistemaCadastro.Domain.Validations;
 using SistemaCadastro.Domain.Validations.Interfaces;
 
@@ -9,12 +8,15 @@ namespace SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Entities;
 
 public sealed class PessoaFisica : Pessoa, IContract
 {
+    private PessoaFisica() { }
+    
     private PessoaFisica(
         Nome nome,
         Cpf cpf,
         DateTime nascimento,
         Email email,
-        Telefone telefone) : base(nome, email, telefone)
+        Telefone telefone,
+        List<Domicilio> domicilios) : base(nome, email, telefone, domicilios)
     {
         Cpf = cpf;
         Nascimento = nascimento;
@@ -29,8 +31,9 @@ public sealed class PessoaFisica : Pessoa, IContract
         Cpf cpf,
         DateTime nascimento,
         Email email,
-        Telefone telefone) =>
-        new(nome, cpf, nascimento, email, telefone);
+        Telefone telefone,
+        List<Domicilio> domicilios) =>
+        new(nome, cpf, nascimento, email, telefone, domicilios);
 
     public override bool Validate()
     {
@@ -39,9 +42,9 @@ public sealed class PessoaFisica : Pessoa, IContract
         .PrimeiroNomeIsOk(Nome, 3, 20, DomainErrors.NOME_INVALIDO, nameof(Nome.PrimeiroNome))
         .SobrenomeIsOk(Nome, 3, 30, DomainErrors.NOME_INVALIDO, nameof(Nome.Sobrenome))
         .EmailIsValid(Email, DomainErrors.EMAIL_INVALIDO, nameof(Email.Valor))
-        .TelefoneIsValid(Telefone, 12, 13, DomainErrors.TELEFONE_INVALIDO, nameof(Telefone.Numero));
+        .TelefoneIsValid(Telefone, 10, 14, DomainErrors.TELEFONE_INVALIDO, nameof(Telefone.Numero));
 
-        SetNotificationList(contracts.Notifications as List<Notification>);
+        SetNotificationList([.. contracts.Notifications]);
         return contracts.IsValid();
     }
 }
