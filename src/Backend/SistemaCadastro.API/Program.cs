@@ -1,5 +1,6 @@
 using SistemaCadastro.Application;
 using SistemaCadastro.Infrastructure;
+using SistemaCadastro.Infrastructure.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,4 +28,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.MapControllers();
 
+await UpdateDatabase();
+
 app.Run();
+
+async Task UpdateDatabase()
+{
+    await using var scope = app.Services.CreateAsyncScope();
+
+    await MigrateExtension.MigrateDatabase(scope.ServiceProvider);
+}
