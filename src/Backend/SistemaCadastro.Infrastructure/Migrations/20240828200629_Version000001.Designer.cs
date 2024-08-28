@@ -12,8 +12,8 @@ using SistemaCadastro.Infrastructure.DataAccess;
 namespace SistemaCadastro.Infrastructure.Migrations
 {
     [DbContext(typeof(SistemaCadastroContext))]
-    [Migration("20240826014858_Versio000001")]
-    partial class Versio000001
+    [Migration("20240828200629_Version000001")]
+    partial class Version000001
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -292,6 +292,78 @@ namespace SistemaCadastro.Infrastructure.Migrations
                                 .HasForeignKey("CadastroId");
                         });
 
+                    b.OwnsOne("SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects.Endereco", "Endereco", b1 =>
+                        {
+                            b1.Property<Guid>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Bairro")
+                                .IsRequired()
+                                .HasMaxLength(50)
+                                .HasColumnType("nvarchar(50)")
+                                .HasColumnName("Bairro");
+
+                            b1.Property<Guid>("CadastroId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Cep")
+                                .IsRequired()
+                                .HasMaxLength(8)
+                                .HasColumnType("nvarchar(8)")
+                                .HasColumnName("Cep");
+
+                            b1.Property<string>("Cidade")
+                                .IsRequired()
+                                .HasMaxLength(50)
+                                .HasColumnType("nvarchar(50)")
+                                .HasColumnName("Cidade");
+
+                            b1.Property<string>("Complemento")
+                                .IsRequired()
+                                .HasMaxLength(255)
+                                .HasColumnType("nvarchar(255)")
+                                .HasColumnName("Complemento");
+
+                            b1.Property<int>("Ibge")
+                                .HasColumnType("int")
+                                .HasColumnName("Ibge");
+
+                            b1.Property<string>("Logradouro")
+                                .IsRequired()
+                                .HasMaxLength(255)
+                                .HasColumnType("nvarchar(255)")
+                                .HasColumnName("Logradouro");
+
+                            b1.Property<string>("Numero")
+                                .IsRequired()
+                                .HasMaxLength(5)
+                                .HasColumnType("nvarchar(5)")
+                                .HasColumnName("Numero");
+
+                            b1.Property<string>("PontoReferencia")
+                                .IsRequired()
+                                .HasMaxLength(255)
+                                .HasColumnType("nvarchar(255)")
+                                .HasColumnName("PontoReferencia");
+
+                            b1.Property<string>("Uf")
+                                .IsRequired()
+                                .HasMaxLength(2)
+                                .HasColumnType("nvarchar(2)")
+                                .HasColumnName("Uf");
+
+                            b1.HasKey("Id");
+
+                            b1.HasIndex("CadastroId")
+                                .IsUnique();
+
+                            b1.ToTable("Endereco", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("CadastroId");
+                        });
+
                     b.OwnsOne("SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects.Nome", "Nome", b1 =>
                         {
                             b1.Property<Guid>("CadastroId")
@@ -479,6 +551,9 @@ namespace SistemaCadastro.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Email")
+                        .IsRequired();
+
+                    b.Navigation("Endereco")
                         .IsRequired();
 
                     b.Navigation("Identificacao")
