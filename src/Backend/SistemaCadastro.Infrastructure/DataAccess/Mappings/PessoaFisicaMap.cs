@@ -8,9 +8,9 @@ public class PessoaFisicaMap : IEntityTypeConfiguration<PessoaFisica>
 {
     public void Configure(EntityTypeBuilder<PessoaFisica> builder)
     {
-        builder.OwnsOne(p => p.Cpf, cpf =>
+        builder.OwnsOne(p => p.Cpf, navigationBuilder =>
         {
-            cpf.Property(c => c.Valor)
+            navigationBuilder.Property(c => c.Valor)
             .HasColumnName("Cpf")
             .IsRequired();
         });

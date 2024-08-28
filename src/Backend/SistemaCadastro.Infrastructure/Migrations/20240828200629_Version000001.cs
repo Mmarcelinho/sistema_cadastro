@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SistemaCadastro.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Versio000001 : Migration
+    public partial class Version000001 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -43,6 +43,33 @@ namespace SistemaCadastro.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cadastros", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Endereco",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Cep = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: false),
+                    Logradouro = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Numero = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: false),
+                    Bairro = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Complemento = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    PontoReferencia = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Uf = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: false),
+                    Cidade = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Ibge = table.Column<int>(type: "int", nullable: false),
+                    CadastroId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Endereco", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Endereco_Cadastros_CadastroId",
+                        column: x => x.CadastroId,
+                        principalTable: "Cadastros",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -108,6 +135,12 @@ namespace SistemaCadastro.Infrastructure.Migrations
                 name: "IX_Domicilios_PessoaId",
                 table: "Domicilios",
                 column: "PessoaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Endereco_CadastroId",
+                table: "Endereco",
+                column: "CadastroId",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -115,6 +148,9 @@ namespace SistemaCadastro.Infrastructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Domicilios");
+
+            migrationBuilder.DropTable(
+                name: "Endereco");
 
             migrationBuilder.DropTable(
                 name: "Pessoas");

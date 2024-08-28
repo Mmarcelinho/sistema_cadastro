@@ -11,43 +11,43 @@ public class PessoaMap : IEntityTypeConfiguration<Pessoa>
 
         builder.HasKey(p => p.Id);
 
-        builder.OwnsOne(p => p.Nome, n =>
+        builder.OwnsOne(p => p.Nome, navigationBuilder =>
         {
-            n.Property(n => n.PrimeiroNome)
+            navigationBuilder.Property(n => n.PrimeiroNome)
             .HasColumnName("PrimeiroNome")
             .IsRequired();
 
-            n.Property(n => n.Sobrenome)
+            navigationBuilder.Property(n => n.Sobrenome)
             .HasColumnName("Sobrenome")
             .IsRequired();
 
-            n.Property(n => n.NomeFantasia)
+            navigationBuilder.Property(n => n.NomeFantasia)
             .HasColumnName("NomeFantasia")
             .IsRequired();
         });
 
-        builder.OwnsOne(p => p.Email, e =>
+        builder.OwnsOne(p => p.Email, navigationBuilder =>
         {
-            e.Property(e => e.Valor)
+            navigationBuilder.Property(e => e.Valor)
             .HasColumnName("Email")
             .IsRequired();
         });
 
-        builder.OwnsOne(p => p.Telefone, telefoneBuilder =>
+        builder.OwnsOne(p => p.Telefone, navigationBuilder =>
         {
-            telefoneBuilder.Property(t => t.Numero)
+            navigationBuilder.Property(t => t.Numero)
             .HasColumnName("TelefoneNumero")
             .IsRequired();
 
-            telefoneBuilder.Property(t => t.Celular)
+            navigationBuilder.Property(t => t.Celular)
             .HasColumnName("TelefoneCelular")
             .IsRequired();
 
-            telefoneBuilder.Property(t => t.Whatsapp)
+            navigationBuilder.Property(t => t.Whatsapp)
             .HasColumnName("TelefoneWhatsapp")
             .IsRequired();
 
-            telefoneBuilder.Property(t => t.Telegram)
+            navigationBuilder.Property(t => t.Telegram)
             .HasColumnName("TelefoneTelegram")
             .IsRequired();
         });
@@ -64,46 +64,46 @@ public class PessoaMap : IEntityTypeConfiguration<Pessoa>
 
             navigationBuilder.Property(d => d.Tipo).HasColumnName("DomicilioTipo").IsRequired();
 
-            navigationBuilder.OwnsOne(d => d.Endereco, enderecoBuilder =>
+            navigationBuilder.OwnsOne(d => d.Endereco, navigationBuilder =>
             {
-                enderecoBuilder.Property(e => e.Cep)
+                navigationBuilder.Property(e => e.Cep)
                 .HasColumnName("Cep")
                 .HasMaxLength(8)
                 .IsRequired();
 
-                enderecoBuilder.Property(e => e.Logradouro)
+                navigationBuilder.Property(e => e.Logradouro)
                 .HasColumnName("Logradouro")
                 .HasMaxLength(255)
                 .IsRequired();
 
-                enderecoBuilder.Property(e => e.Numero)
+                navigationBuilder.Property(e => e.Numero)
                 .HasColumnName("Numero")
                 .HasMaxLength(5)
                 .IsRequired();
 
-                enderecoBuilder.Property(e => e.Bairro).HasColumnName("Bairro")
+                navigationBuilder.Property(e => e.Bairro).HasColumnName("Bairro")
                 .HasMaxLength(50)
                 .IsRequired();
 
-                enderecoBuilder.Property(e => e.Complemento)
+                navigationBuilder.Property(e => e.Complemento)
                 .HasColumnName("Complemento")
                 .HasMaxLength(255);
 
-                enderecoBuilder.Property(e => e.PontoReferencia)
+                navigationBuilder.Property(e => e.PontoReferencia)
                 .HasColumnName("PontoReferencia")
                 .HasMaxLength(255);
 
-                enderecoBuilder.Property(e => e.Uf)
+                navigationBuilder.Property(e => e.Uf)
                 .HasColumnName("Uf")
                 .HasMaxLength(2)
                 .IsRequired();
 
-                enderecoBuilder.Property(e => e.Cidade)
+                navigationBuilder.Property(e => e.Cidade)
                 .HasColumnName("Cidade")
                 .HasMaxLength(50)
                 .IsRequired();
 
-                enderecoBuilder.Property(e => e.Ibge)
+                navigationBuilder.Property(e => e.Ibge)
                 .HasColumnName("Ibge");
             });
         });
