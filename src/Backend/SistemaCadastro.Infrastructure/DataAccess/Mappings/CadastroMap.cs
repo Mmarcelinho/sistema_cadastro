@@ -18,27 +18,27 @@ public class CadastroMap : IEntityTypeConfiguration<Cadastro>
             .HasForeignKey<Pessoa>(p => p.Id)
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.OwnsOne(c => c.Email, e =>
+        builder.OwnsOne(c => c.Email, navigationBuilder =>
         {
-            e.Property(e => e.Valor)
+            navigationBuilder.Property(e => e.Valor)
             .HasColumnName("Email")
             .IsRequired();
         });
 
-        builder.OwnsOne(c => c.Nome, n =>
+        builder.OwnsOne(c => c.Nome, navigationBuilder =>
         {
-            n.Property(n => n.PrimeiroNome)
+            navigationBuilder.Property(n => n.PrimeiroNome)
             .HasColumnName("PrimeiroNome");
 
-            n.Property(n => n.Sobrenome)
+            navigationBuilder.Property(n => n.Sobrenome)
             .HasColumnName("Sobrenome");
 
-            n.Property(n => n.NomeFantasia)
+            navigationBuilder.Property(n => n.NomeFantasia)
             .HasColumnName("NomeFantasia")
             .IsRequired()
             .HasMaxLength(50);
 
-            n.Property(n => n.SobrenomeSocial)
+            navigationBuilder.Property(n => n.SobrenomeSocial)
             .HasColumnName("SobrenomeSocial")
             .IsRequired()
             .HasMaxLength(50);
@@ -128,5 +128,54 @@ public class CadastroMap : IEntityTypeConfiguration<Cadastro>
             .HasColumnName("IdentificacaoTipo")
             .IsRequired();
         });
+
+        builder.OwnsOne(p => p.Endereco, navigationBuilder =>
+        {
+            navigationBuilder.ToTable("Endereco");
+            navigationBuilder.WithOwner().HasForeignKey("CadastroId");
+            navigationBuilder.Property<Guid>("Id");
+            navigationBuilder.HasKey("Id");
+
+            navigationBuilder.Property(e => e.Cep)
+            .HasColumnName("Cep")
+            .HasMaxLength(8)
+            .IsRequired();
+
+            navigationBuilder.Property(e => e.Logradouro)
+            .HasColumnName("Logradouro")
+            .HasMaxLength(255)
+            .IsRequired();
+
+            navigationBuilder.Property(e => e.Numero)
+            .HasColumnName("Numero")
+            .HasMaxLength(5)
+            .IsRequired();
+
+            navigationBuilder.Property(e => e.Bairro).HasColumnName("Bairro")
+            .HasMaxLength(50)
+            .IsRequired();
+
+            navigationBuilder.Property(e => e.Complemento)
+            .HasColumnName("Complemento")
+            .HasMaxLength(255);
+
+            navigationBuilder.Property(e => e.PontoReferencia)
+            .HasColumnName("PontoReferencia")
+            .HasMaxLength(255);
+
+            navigationBuilder.Property(e => e.Uf)
+            .HasColumnName("Uf")
+            .HasMaxLength(2)
+            .IsRequired();
+
+            navigationBuilder.Property(e => e.Cidade)
+            .HasColumnName("Cidade")
+            .HasMaxLength(50)
+            .IsRequired();
+
+            navigationBuilder.Property(e => e.Ibge)
+            .HasColumnName("Ibge");
+        });
+
     }
 }
