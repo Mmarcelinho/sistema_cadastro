@@ -8,9 +8,9 @@ public class PessoaJuridicaMap : IEntityTypeConfiguration<PessoaJuridica>
 {
     public void Configure(EntityTypeBuilder<PessoaJuridica> builder)
     {
-        builder.OwnsOne(p => p.Cnpj, cnpj =>
+        builder.OwnsOne(p => p.Cnpj, navigationBuilder =>
         {
-            cnpj.Property(c => c.Valor)
+            navigationBuilder.Property(c => c.Valor)
             .HasColumnName("Cnpj")
             .IsRequired();
         });
