@@ -1,7 +1,3 @@
-using System.Text.RegularExpressions;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
-using SistemaCadastro.Domain.Notifications;
-
 namespace SistemaCadastro.Domain.Validations;
 
     public partial class ContractValidations<T> 

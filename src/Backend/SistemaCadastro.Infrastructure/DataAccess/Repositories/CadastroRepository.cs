@@ -1,7 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Entities;
-using SistemaCadastro.Domain.Contexts.Cadastro.Repositories;
-
 namespace SistemaCadastro.Infrastructure.DataAccess.Repositories;
 
 public class CadastroRepository(SistemaCadastroContext _context) : ICadastroRepository

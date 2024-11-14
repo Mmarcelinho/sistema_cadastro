@@ -1,6 +1,3 @@
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Entities;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
-
 namespace SistemaCadastro.Domain.Contexts.Cadastro.Abstractions;
 
 public abstract class Pessoa : Entidade

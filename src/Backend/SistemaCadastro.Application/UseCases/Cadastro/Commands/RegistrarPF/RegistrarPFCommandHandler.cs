@@ -1,12 +1,3 @@
-using MediatR;
-using SistemaCadastro.Application.DTOs.Conversions;
-using SistemaCadastro.Application.Shared.Results;
-using SistemaCadastro.Application.Shared.Results.Interfaces;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Entities;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
-using SistemaCadastro.Domain.Contexts.Cadastro.Repositories;
-using SistemaCadastro.Domain.Repositories;
-
 namespace SistemaCadastro.Application.UseCases.Cadastro.Commands.RegistrarPF;
 
 public sealed class RegistrarPFCommandHandler(ICadastroRepository _repository, IUnitOfWork _unitOfWork) : IRequestHandler<RegistrarPFCommand, IResult>
@@ -32,7 +23,6 @@ public sealed class RegistrarPFCommandHandler(ICadastroRepository _repository, I
             request.Telefone.Whatsapp,
             request.Telefone.Telegram
         );
-
 
         var domicilios = RecuperarEndereco(request);
 
@@ -69,7 +59,6 @@ public sealed class RegistrarPFCommandHandler(ICadastroRepository _repository, I
             request.Inscrito.Associado,
             request.Inscrito.Afiliado
         );
-
 
         var credencial = Credencial.Criar(request.Credencial.Bloqueada);
 

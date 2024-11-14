@@ -1,6 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using SistemaCadastro.Domain.Contexts.Cadastro.Abstractions;
-
 namespace SistemaCadastro.Infrastructure.DataAccess.Mappings;
 
 public class PessoaMap : IEntityTypeConfiguration<Pessoa>

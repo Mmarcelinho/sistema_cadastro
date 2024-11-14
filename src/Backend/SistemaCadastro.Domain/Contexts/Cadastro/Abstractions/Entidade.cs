@@ -1,6 +1,3 @@
-using SistemaCadastro.Domain.Notifications;
-using SistemaCadastro.Domain.Validations.Interfaces;
-
 namespace SistemaCadastro.Domain.Contexts.Cadastro.Abstractions;
 
 public abstract class Entidade : IValidate

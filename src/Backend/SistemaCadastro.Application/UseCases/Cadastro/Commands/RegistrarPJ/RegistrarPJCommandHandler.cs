@@ -1,12 +1,3 @@
-using MediatR;
-using SistemaCadastro.Application.DTOs.Conversions;
-using SistemaCadastro.Application.Shared.Results;
-using SistemaCadastro.Application.Shared.Results.Interfaces;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Entities;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
-using SistemaCadastro.Domain.Contexts.Cadastro.Repositories;
-using SistemaCadastro.Domain.Repositories;
-
 namespace SistemaCadastro.Application.UseCases.Cadastro.Commands.RegistrarPJ;
 
 public class RegistrarPJCommandHandler(ICadastroRepository _repository, IUnitOfWork _unitOfWork) : IRequestHandler<RegistrarPJCommand, IResult>
@@ -76,7 +67,6 @@ public class RegistrarPJCommandHandler(ICadastroRepository _repository, IUnitOfW
            request.Inscrito.Afiliado
         );
 
-
         var credencial = Credencial.Criar(request.Credencial.Bloqueada);
 
         var parceiro = Parceiro.Criar
@@ -114,7 +104,6 @@ public class RegistrarPJCommandHandler(ICadastroRepository _repository, IUnitOfW
             request.Endereco.Cidade,
             request.Endereco.Ibge
         );
-
 
         var cadastroPJ = Domain.Contexts.Cadastro.Aggregates.Entities.Cadastro.CriarCadastroPessoaJuridica
         (

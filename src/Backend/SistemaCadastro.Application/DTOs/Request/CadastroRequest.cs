@@ -1,5 +1,3 @@
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Enums;
-
 namespace SistemaCadastro.Application.DTOs.Request;
 
 public record EmailRequest(string Valor);

@@ -1,7 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using SistemaCadastro.Infrastructure.DataAccess;
-
 namespace SistemaCadastro.Infrastructure.Migrations;
 
 public static class MigrateExtension

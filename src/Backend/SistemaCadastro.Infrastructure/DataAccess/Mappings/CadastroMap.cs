@@ -1,8 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SistemaCadastro.Domain.Contexts.Cadastro.Abstractions;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Entities;
-
 namespace SistemaCadastro.Infrastructure.DataAccess.Mappings;
 
 public class CadastroMap : IEntityTypeConfiguration<Cadastro>

@@ -1,11 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using SistemaCadastro.Domain.Contexts.Cadastro.Repositories;
-using SistemaCadastro.Domain.Repositories;
-using SistemaCadastro.Infrastructure.DataAccess;
-using SistemaCadastro.Infrastructure.DataAccess.Repositories;
-
 namespace SistemaCadastro.Infrastructure;
 
 public static class DependencyInjectionExtension

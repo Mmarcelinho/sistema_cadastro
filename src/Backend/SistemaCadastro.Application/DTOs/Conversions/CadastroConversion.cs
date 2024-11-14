@@ -1,6 +1,3 @@
-using SistemaCadastro.Application.DTOs.Reponse;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Entities;
-
 namespace SistemaCadastro.Application.DTOs.Conversions;
 
 public static class CadastroConversion

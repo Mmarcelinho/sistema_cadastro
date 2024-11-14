@@ -24,5 +24,6 @@ public sealed record Credencial
 
     public static Credencial Criar(bool bloqueada) => new(bloqueada);
 
-    public static Credencial Criar(bool bloqueada, string expirada, string senha) => new(bloqueada, expirada, senha);
+    public static Credencial Criar(bool bloqueada, string expirada, string senha) 
+    => new(bloqueada, expirada, senha);
 }

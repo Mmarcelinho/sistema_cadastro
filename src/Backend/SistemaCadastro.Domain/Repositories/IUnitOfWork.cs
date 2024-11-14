@@ -1,6 +1,6 @@
 namespace SistemaCadastro.Domain.Repositories;
 
-    public interface IUnitOfWork
-    {
-        Task SaveChangesAsync();
-    }
+public interface IUnitOfWork
+{
+    Task SaveChangesAsync();
+}
