@@ -1,7 +1,3 @@
-using MediatR;
-using SistemaCadastro.Application.DTOs.Request;
-using SistemaCadastro.Application.Shared.Results.Interfaces;
-
 namespace SistemaCadastro.Application.UseCases.Cadastro.Commands.RegistrarPJ;
 
     public sealed record RegistrarPJCommand(

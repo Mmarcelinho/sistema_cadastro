@@ -1,7 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Entities;
-using SistemaCadastro.Domain.Notifications;
-
 namespace SistemaCadastro.Infrastructure.DataAccess;
 
 public class SistemaCadastroContext(DbContextOptions<SistemaCadastroContext> options) : DbContext(options)

@@ -1,6 +1,3 @@
-using SistemaCadastro.Domain.Notifications;
-using SistemaCadastro.Domain.Validations.Interfaces;
-
 namespace SistemaCadastro.Domain.Validations;
 
 public partial class ContractValidations<T> where T : IContract

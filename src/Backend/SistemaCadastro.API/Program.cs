@@ -1,7 +1,3 @@
-using SistemaCadastro.Application;
-using SistemaCadastro.Infrastructure;
-using SistemaCadastro.Infrastructure.Migrations;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRouting(option => option.LowercaseUrls = true);

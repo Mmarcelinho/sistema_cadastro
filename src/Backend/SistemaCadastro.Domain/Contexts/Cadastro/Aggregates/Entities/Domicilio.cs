@@ -1,10 +1,3 @@
-using SistemaCadastro.Domain.Contexts.Cadastro.Abstractions;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Enums;
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
-using SistemaCadastro.Domain.Contexts.Cadastro.Errors;
-using SistemaCadastro.Domain.Validations;
-using SistemaCadastro.Domain.Validations.Interfaces;
-
 namespace SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Entities;
 
 public sealed class Domicilio : Entidade, IContract

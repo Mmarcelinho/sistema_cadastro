@@ -18,6 +18,6 @@ public sealed record Telefone
 
     public bool Telegram { get; }
 
-    public static Telefone Criar(long numero, bool celular, bool whatsapp, bool telegram) =>
-    new(numero, celular, whatsapp, telegram);
+    public static Telefone Criar(long numero, bool celular, bool whatsapp, bool telegram) 
+    => new(numero, celular, whatsapp, telegram);
 }

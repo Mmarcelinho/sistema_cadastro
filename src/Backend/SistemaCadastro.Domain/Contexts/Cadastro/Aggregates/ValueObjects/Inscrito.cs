@@ -15,5 +15,6 @@ public sealed record Inscrito
 
     public bool Afiliado { get; }
 
-    public static Inscrito Criar(bool assinante, bool associado, bool afiliado) => new(assinante, associado, afiliado);
+    public static Inscrito Criar(bool assinante, bool associado, bool afiliado) 
+    => new(assinante, associado, afiliado);
 }

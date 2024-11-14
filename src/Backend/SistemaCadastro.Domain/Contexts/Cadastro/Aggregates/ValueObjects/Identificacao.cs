@@ -1,5 +1,3 @@
-using SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.Enums;
-
 namespace SistemaCadastro.Domain.Contexts.Cadastro.Aggregates.ValueObjects;
 
 public sealed record Identificacao
@@ -17,5 +15,6 @@ public sealed record Identificacao
 
     public EIdentificacaoTipo Tipo { get; }
 
-    public static Identificacao Criar(int? empresa, string identificador, EIdentificacaoTipo tipo) => new(empresa, identificador, tipo);
+    public static Identificacao Criar(int? empresa, string identificador, EIdentificacaoTipo tipo) 
+    => new(empresa, identificador, tipo);
 }

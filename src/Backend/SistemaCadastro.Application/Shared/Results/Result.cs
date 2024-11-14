@@ -1,6 +1,3 @@
-using SistemaCadastro.Application.Shared.Results.Interfaces;
-using SistemaCadastro.Domain.Notifications;
-
 namespace SistemaCadastro.Application.Shared.Results;
 
 public class Result(int resultCode, string message, bool isOk) : IResult

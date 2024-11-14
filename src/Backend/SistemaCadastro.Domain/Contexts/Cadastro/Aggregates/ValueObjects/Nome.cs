@@ -25,9 +25,9 @@ public sealed record Nome
 
     public string SobrenomeSocial { get; }
 
-    public static Nome Criar(string primeiroNome, string sobrenome, string nomeFantasia, string sobrenomeSocial) =>
-    new(primeiroNome, sobrenome, nomeFantasia, sobrenomeSocial);
+    public static Nome Criar(string primeiroNome, string sobrenome, string nomeFantasia, string sobrenomeSocial) 
+    => new(primeiroNome, sobrenome, nomeFantasia, sobrenomeSocial);
 
-    public static Nome Criar(string primeiroNome, string sobrenome, string nomeFantasia) =>
-    new(primeiroNome, sobrenome, nomeFantasia);    
+    public static Nome Criar(string primeiroNome, string sobrenome, string nomeFantasia) 
+    => new(primeiroNome, sobrenome, nomeFantasia);    
 }
